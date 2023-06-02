@@ -70,7 +70,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.CardViewObject
     public void setTasks(List<ToDoModel> toDoList){
         this.toDoList=toDoList;
         notifyDataSetChanged();
-        //SADAMS
+
     }
 
     public Context getContext(){
