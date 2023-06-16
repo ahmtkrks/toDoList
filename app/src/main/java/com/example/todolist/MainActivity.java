@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DialogCloseListener  {
+public class MainActivity extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
     private ToDoAdapter tasksAdapter;
@@ -39,18 +39,17 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         getSupportActionBar().hide();
 
 
-        db= new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
         db.openDatabase();
 
         taskList = new ArrayList<>();
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter=new ToDoAdapter(db,this);
+        tasksAdapter = new ToDoAdapter(db, this);
         recyclerItemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         recyclerItemTouchHelper.attachToRecyclerView(tasksRecyclerView);
         tasksRecyclerView.setAdapter(tasksAdapter);
-
 
 
         fab = findViewById(R.id.fab);
@@ -62,18 +61,18 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddNewTask.newInstance().show(getSupportFragmentManager(),AddNewTask.TAG);
+                AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
             }
         });
     }
 
-@Override
-    public void handleDialogClose(@NonNull DialogInterface dialog){
-         taskList = db.getAllTasks();
-         Collections.reverse(taskList);
-         tasksAdapter.setTasks(taskList);
-         tasksAdapter.notifyDataSetChanged();
-     }
+    @Override
+    public void handleDialogClose(@NonNull DialogInterface dialog) {
+        taskList = db.getAllTasks();
+        Collections.reverse(taskList);
+        tasksAdapter.setTasks(taskList);
+        tasksAdapter.notifyDataSetChanged();
+    }
 
 
 }

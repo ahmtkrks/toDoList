@@ -1,7 +1,7 @@
 package com.example.todolist.Model;
 
 public class ToDoModel {
-    private int id,status;
+    private int id, status;
     private String task;
 
     public int getId() {

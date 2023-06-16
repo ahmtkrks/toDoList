@@ -21,8 +21,8 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
 
     public RecyclerItemTouchHelper(ToDoAdapter adapter) {
-        super(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
-        this.adapter=adapter;
+        super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+        this.adapter = adapter;
     }
 
     @Override
@@ -56,6 +56,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             adapter.editItem(position);
         }
     }
+
     @Override
     public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
